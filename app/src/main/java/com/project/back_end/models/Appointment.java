@@ -2,6 +2,7 @@ package com.project.back_end.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Future;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,6 +13,7 @@ public class Appointment {
     private Long id;
 
     @NotNull
+    @Future(message = "Appointment date and time must be set in the future")
     private LocalDateTime appointmentTime;
 
     @ManyToOne
